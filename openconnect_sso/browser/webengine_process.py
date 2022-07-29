@@ -146,6 +146,7 @@ class WebBrowser(QWebEngineView):
         super().__init__()
         self._on_update = on_update
         self._auto_fill_rules = auto_fill_rules
+        self.page().profile().setHttpUserAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36 Edg/103.0.1264.77")
         cookie_store = self.page().profile().cookieStore()
         cookie_store.cookieAdded.connect(self._on_cookie_added)
         self.page().loadFinished.connect(self._on_load_finished)
